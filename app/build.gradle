@@ -26,4 +26,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // retrofit, gson
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // GSON body parser
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.android.support:design:29.0.2'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 }
