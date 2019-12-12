@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'BASE_URL', '"http://sd2-hiring.herokuapp.users"'
+		buildConfigField "boolean", "IS_DEBUG", 'true'
+        buildConfigField "int", "PAGE_LIMIT", '10'
     }
     buildTypes {
         release {

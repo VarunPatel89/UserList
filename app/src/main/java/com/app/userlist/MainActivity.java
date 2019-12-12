@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     }
 	
 	private void callGetListWS(){
+		if (offsetBrands > 1){
+            setFooterVisibility(relLoadMore, View.VISIBLE);
+        }else{
+            Utility.showProgress(this, false);
+        }
+		
 		
 	}
 }
