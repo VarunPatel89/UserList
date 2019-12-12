@@ -15,6 +15,7 @@ import com.app.userlist.network.responsemodel.ClsGetListResponse;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -126,8 +127,7 @@ public class MainActivity extends AppCompatActivity
                 recycleViewList.setLayoutManager(getLinearLayoutManager());
                 cultureListAdapter = new ListAdapter(this, usersBeans);
                 recycleViewList.setAdapter(cultureListAdapter);
-//                recycleViewList.addItemDecoration(new DividerItemDecoration(recycleViewList.getContext(), DividerItemDecoration.VERTICAL));
-//                recycleViewList.addItemDecoration(new GridInsetDecoration(10, 10));
+                recycleViewList.addItemDecoration(new DividerItemDecoration(recycleViewList.getContext(), DividerItemDecoration.VERTICAL));
                 recycleViewList.addOnScrollListener(endlessRecyclerViewScrollListener);
             }
             else
