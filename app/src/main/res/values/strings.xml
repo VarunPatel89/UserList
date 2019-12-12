@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UserList</string>
+    <string name="internet_connection_not_available">Internet connection is not available.</string>
 </resources>

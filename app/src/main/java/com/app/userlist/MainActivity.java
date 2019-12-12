@@ -128,7 +128,8 @@ public class MainActivity extends AppCompatActivity
                 recycleViewList.setLayoutManager(getLinearLayoutManager());
                 cultureListAdapter = new ListAdapter(this, usersBeans);
                 recycleViewList.setAdapter(cultureListAdapter);
-                recycleViewList.addItemDecoration(new DividerItemDecoration(recycleViewList.getContext(), DividerItemDecoration.VERTICAL));
+//                recycleViewList.addItemDecoration(new DividerItemDecoration(recycleViewList.getContext(), DividerItemDecoration.VERTICAL));
+//                recycleViewList.addItemDecoration(new GridInsetDecoration(10, 10));
                 recycleViewList.addOnScrollListener(endlessRecyclerViewScrollListener);
             }
             else
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity
                 if (Utility.isNetworkAvailable(MainActivity.this))
                     callGetListWS();
                 else
-                    Toast.makeText(MainActivity.this, "Internet connection is not available.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, MainActivity.this.getString(R.string.internet_connection_not_available), Toast.LENGTH_SHORT).show();
             }
         }
     };
