@@ -11,12 +11,10 @@ import com.app.userlist.adapter.ListAdapter;
 import com.app.userlist.network.ApiCallBack;
 import com.app.userlist.network.ApiClient;
 import com.app.userlist.network.responsemodel.ClsGetListResponse;
-import com.app.userlist.recyclerview.GridInsetDecoration;
 
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity
             {
                 swipeLayout.setRefreshing(false);
                 offsetBrands = 1;
-				if (usersBeans != null && usersBeans.size() > 0)
+                if (usersBeans != null && usersBeans.size() > 0)
                     usersBeans.clear();
                 callGetListWS();
             }

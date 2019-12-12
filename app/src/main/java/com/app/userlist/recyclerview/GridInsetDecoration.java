@@ -6,24 +6,28 @@ import android.view.View;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class GridInsetDecoration extends RecyclerView.ItemDecoration {
+public class GridInsetDecoration extends RecyclerView.ItemDecoration
+{
 
     private int insetHorizontal;
     private int insetVertical;
 
-    public GridInsetDecoration(int insetHorizontal, int insetVertical) {
+    public GridInsetDecoration(int insetHorizontal, int insetVertical)
+    {
         this.insetHorizontal = insetHorizontal;
         this.insetVertical = insetVertical;
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                               RecyclerView.State state) {
+                               RecyclerView.State state)
+    {
         GridLayoutManager.LayoutParams layoutParams
                 = (GridLayoutManager.LayoutParams) view.getLayoutParams();
 
         int position = layoutParams.getViewAdapterPosition();
-        if (position == RecyclerView.NO_POSITION) {
+        if (position == RecyclerView.NO_POSITION)
+        {
             outRect.set(0, 0, 0, 0);
             return;
         }

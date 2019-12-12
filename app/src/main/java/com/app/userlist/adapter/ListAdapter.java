@@ -5,12 +5,10 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.userlist.R;
 import com.app.userlist.network.responsemodel.ClsGetListResponse;
-import com.app.userlist.recyclerview.SpacesItemDecoration;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
@@ -104,9 +102,6 @@ public class ListAdapter extends RecyclerView.Adapter
             gridAdapter = new GridAdapter(mContext, items);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(gridAdapter);
-//            int spacingInPixels = mContext.getResources().getDimensionPixelSize(R.dimen.spacing);
-//            recyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
-//            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         }
     }
 
