@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', 'BASE_URL', '"http://sd2-hiring.herokuapp.com/api/users"'
+        buildConfigField 'String', 'BASE_URL', '"http://sd2-hiring.herokuapp.com/api/"'
 		buildConfigField "boolean", "IS_DEBUG", 'true'
         buildConfigField "int", "PAGE_LIMIT", '10'
     }
@@ -37,4 +37,6 @@ dependencies {
     implementation 'com.android.support:design:29.0.2'
     //Glide
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //circle imageView
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
 }

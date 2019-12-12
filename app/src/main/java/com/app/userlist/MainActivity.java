@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity
             {
                 swipeLayout.setRefreshing(false);
                 offsetBrands = 1;
+				if (usersBeans != null && usersBeans.size() > 0)
+                    usersBeans.clear();
                 callGetListWS();
             }
         });

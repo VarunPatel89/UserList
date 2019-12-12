@@ -61,7 +61,7 @@ public class GridAdapter extends RecyclerView.Adapter {
         final String url = getLists().get(position);
         Glide.with(mContext).load(url)
                 .asBitmap()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.bg_gray)
                 .dontAnimate().into(((GridAdapter.ViewHolder) holder).image);
     }
 

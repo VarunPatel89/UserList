@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.app.userlist.R;
 import com.app.userlist.network.responsemodel.ClsGetListResponse;
+import com.app.userlist.recyclerview.SpacesItemDecoration;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
@@ -18,9 +19,9 @@ import java.util.List;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListAdapter extends RecyclerView.Adapter
 {
@@ -68,14 +69,14 @@ public class ListAdapter extends RecyclerView.Adapter
     {
         private RecyclerView recycleViewChild;
         private TextView txtName;
-        private ImageView thumb;
+        private CircleImageView thumb;
 
         public ViewHolder(View v)
         {
             super(v);
             recycleViewChild = (RecyclerView) v.findViewById(R.id.recycleViewChild);
             txtName = (TextView) v.findViewById(R.id.txtName);
-            thumb = (ImageView) v.findViewById(R.id.thumb);
+            thumb = (CircleImageView) v.findViewById(R.id.thumb);
         }
     }
 
@@ -103,7 +104,9 @@ public class ListAdapter extends RecyclerView.Adapter
             gridAdapter = new GridAdapter(mContext, items);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(gridAdapter);
-            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+            int spacingInPixels = mContext.getResources().getDimensionPixelSize(R.dimen.spacing);
+            recyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
+//            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         }
     }
 
@@ -114,7 +117,7 @@ public class ListAdapter extends RecyclerView.Adapter
         ((ViewHolder) holder).txtName.setText(usersBean.getName());
 
         Glide.with(mContext).load(usersBean.getImage()).asBitmap()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.bg_gray)
                 .centerCrop()
                 .into(new BitmapImageViewTarget(((ViewHolder) holder).thumb)
                 {
