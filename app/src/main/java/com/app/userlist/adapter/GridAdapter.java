@@ -1,55 +1,75 @@
 package com.app.userlist.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.app.userlist.R;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-public class GridAdapter extends RecyclerView.Adapter<GridAdapter.MyViewHolder> {
-    private String[] mDataset;
+import com.app.userlist.R;
+import com.bumptech.glide.Glide;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
-        public MyViewHolder(TextView v) {
-            super(v);
-            textView = v;
-        }
+import java.util.ArrayList;
+import java.util.List;
+
+public class GridAdapter extends RecyclerView.Adapter {
+    private List<String> list = new ArrayList<>();
+    private Context mContext;
+    private GridAdapter gridAdapter;
+
+    /***
+     * @param list = list of product list
+     * @param mContext = activity context
+     */
+    public GridAdapter(Context mContext, List<String> list) {
+        this.list = list;
+        this.mContext = mContext;
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public GridAdapter(String[] myDataset) {
-        mDataset = myDataset;
-    }
-
-    // Create new views (invoked by the layout manager)
     @Override
-    public GridAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
-        // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_list, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                      int viewType) {
+        RecyclerView.ViewHolder vh;
+        View v = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.item_child_list, parent, false);
 
-        MyViewHolder vh = new MyViewHolder(v);
+        vh = new ViewHolder(v);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.setText(mDataset[position]);
 
-    }
-
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return getLists().size();
+    }
+
+
+    private class ViewHolder extends RecyclerView.ViewHolder {
+        private ImageView image;
+
+        public ViewHolder(View v) {
+            super(v);
+            image = (ImageView) v.findViewById(R.id.image);
+        }
+    }
+
+
+    @Override
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        final String url = getLists().get(position);
+        Glide.with(mContext).load(url)
+                .asBitmap()
+                .placeholder(R.drawable.ic_launcher_background)
+                .dontAnimate().into(((GridAdapter.ViewHolder) holder).image);
+    }
+
+    public List<String> getLists() {
+        return this.list;
+    }
+
+    public void setLists(List<String> keywordLists) {
+        this.list = keywordLists;
     }
 }
