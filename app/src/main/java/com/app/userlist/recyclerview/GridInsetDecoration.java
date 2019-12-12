@@ -3,6 +3,8 @@ package com.app.userlist.recyclerview;
 import android.graphics.Rect;
 import android.view.View;
 
+import com.app.userlist.Utility;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +25,7 @@ public class GridInsetDecoration extends RecyclerView.ItemDecoration {
                 = (GridLayoutManager.LayoutParams) view.getLayoutParams();
 
         int position = layoutParams.getViewAdapterPosition();
+        Utility.log("Position : "+position);
         if (position == RecyclerView.NO_POSITION) {
             outRect.set(0, 0, 0, 0);
             return;
